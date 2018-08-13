@@ -27,6 +27,43 @@ namespace LINQ
             return retVal.ToArray();
         }
 
+        public static bool AnyCapitals(string s)
+        {
+            return s.Any(x => char.IsUpper(x));
+        }
 
+        public static bool AllCapitals(string s)
+        {
+            return s.Where(x=> char.IsLetter(x)).All(x => char.IsUpper(x));
+        }
+
+        public static int NumPairs(Dictionary<int, string > dict)
+        {
+            return dict.Count();
+        }
+
+        public static int NumPairsWithKeyValue(Dictionary<int, string> dict, int x, int y)
+        {
+            return dict.Where(el => el.Key > x && el.Value.Length < y).Count();
+        }
+
+
+        public static  List<double> GetDistinctWithValue(List<double> nums, int x)
+        {
+            return nums.Distinct().Where(xy => xy < x).ToList();
+            
+        }
+
+        public static int[] FindFirstArrayWithLength(List<int[]> arrays, int x)
+        {
+            return arrays.FirstOrDefault(y => y.Length > x);
+        }
+
+        public static int GetLastOddElement(int[] array)
+        {
+
+            return array.LastOrDefault(y => y % 2 == 1);
+
+        }
     }
 }
