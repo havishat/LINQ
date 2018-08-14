@@ -65,5 +65,26 @@ namespace LINQ
             return array.LastOrDefault(y => y % 2 == 1);
 
         }
+
+        public static int GetMinListListValue(List<List<int>> lists)
+        {
+            var mins = new List<int>();
+            foreach(var list in lists)
+            {
+                var min = int.MinValue;
+
+                foreach(var num in list)
+                {
+                    if(num < min)
+                    {
+                        min = num;
+                    }
+                    
+                }
+                mins.Add(min);
+                
+            }
+            return lists.Min(x => x.Min());
+        }
     }
 }
